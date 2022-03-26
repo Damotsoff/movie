@@ -23,16 +23,25 @@
 Проверить, чтобы все работало без ошибок в консоли */
 
 const numberOfFilms = prompt('Сколько фильмов уже посмотрели?');
-const lastFilm = prompt('Один из последних фильмов');
-const howMany = prompt('На сколько оцените его ?')
 
 const personalMovieDB = {
-  count : numberOfFilms,
-  movies : {},
-  actors : {},
-  genres : [],
-  privat : false
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
 
 };
-personalMovieDB.movies[lastFilm] = howMany;
+
+for (let i = 0; i < 2; i++) {
+    const lastFilm = prompt('Один из последних фильмов'),
+        howMany = prompt('На сколько оцените его ?');
+    if (lastFilm != '' && lastFilm != null && lastFilm.length < 50 && howMany != '' && howMany != null) {
+        personalMovieDB.movies[lastFilm] = howMany;
+    }else{
+        i--;
+    }
+
+};
+
 console.log(personalMovieDB);
