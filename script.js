@@ -22,7 +22,7 @@
 
 Проверить, чтобы все работало без ошибок в консоли */
 
-const numberOfFilms = prompt('Сколько фильмов уже посмотрели?');
+const numberOfFilms = +prompt('Сколько фильмов уже посмотрели?');
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -38,10 +38,17 @@ for (let i = 0; i < 2; i++) {
         howMany = prompt('На сколько оцените его ?');
     if (lastFilm != '' && lastFilm != null && lastFilm.length < 50 && howMany != '' && howMany != null) {
         personalMovieDB.movies[lastFilm] = howMany;
-    }else{
+    } else {
         i--;
     }
 
 };
+if (personalMovieDB.count < 10) {
+    console.log('просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count > 10 && personalMovieDB.count <= 30) {
+    console.log('вы классический зритель');
+} else if (personalMovieDB.count > 30) {
+    console.log('вы киноман!');
+}
 
 console.log(personalMovieDB);
